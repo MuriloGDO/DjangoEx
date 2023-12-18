@@ -1,0 +1,37 @@
+{% extends 'base_nav.html' %}
+
+{% block 'body' %}
+    {% if request.user.is_authenticated %}
+        {% if dono_projetos or projetos %}
+            {% for dono_projeto in dono_projetos %}
+                <div class="container list-group">
+                    <a href="/gerenciar/" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{ dono_projeto.nome }}</h5>
+                        </div>
+                        <p class="mb-1">{{ dono_projeto.desc }}</p>
+                        <small>Clique para editar</small>
+                    </a>
+                </div>
+            {% endfor %}
+            {% for projeto in projetos %}
+                <div class="container list-group">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{ projeto.nome }}</h5>
+                        </div>
+                        <p class="mb-1">{{ projeto.desc }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="container alert alert-dark" role="alert">
+                Você ainda não está em um projeto.
+            </div>
+        {% endif %}
+    {% else %}
+        <div class=" container alert alert-danger" role="alert">
+            <h1>Acesso negado.</h1>
+        </div>
+    {% endif %}
+{% endblock %}

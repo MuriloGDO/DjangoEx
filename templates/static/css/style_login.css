@@ -1,0 +1,70 @@
+html, body, div, h1, p, input, a, label{
+    padding: 0;
+    margin: 0;
+    
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: gray;
+}
+
+.container{
+    padding: 20px;
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 0.4cm;
+}
+
+.title{
+    font-size: 3vw;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.usuario, .senha{
+    width: 100%;
+    margin-top: 5px;
+    border-bottom: black;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.botao{
+    width: 100%;
+    padding: 10px;
+    cursor:pointer;
+    margin-bottom: 50px;
+    border-style: none;
+    background-color: rgba(2, 2, 43, 0.8);
+    border-radius: 1cm;
+    color: white;
+}
+
+@media (max-width: 500px){
+    .title{
+        font-size: 4vw;
+    }
+    p{
+        font-size: 2.3vw;
+    }
+    .container{
+        width: 50%;
+    }
+}
+
+.erro{
+    color: red;
+    height: 10px;
+    font-size: 11px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}

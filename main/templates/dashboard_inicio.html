@@ -1,0 +1,39 @@
+{% extends 'base_nav.html' %}
+
+{% block 'body' %}
+    {% if request.user.is_authenticated %}
+        {% if dono_empresa or empresas_user %}
+            {% for dono in dono_empresa %}
+                <div class="container card text-center">
+                    <div class="card-header">
+                        <h5 class="card-title">{{dono.nome}}</h5>
+                        <small>Sua empresa</small>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{dono.desc}}</p>
+                        <a href="{% url 'dashboard_projetos_empresa' %}?parametro1={{dono.id}}" class="btn btn-primary">Visitar</a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% for empresa in empresas_user %}
+                <div class="container card text-center">
+                    <div class="card-header">
+                        <h5 class="card-title">{{empresa.nome}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{empresa.desc}}</p>
+                        <a href="{% url 'dashboard_projetos_empresa' %}?parametro1={{empresa.id}}" class="btn btn-primary">Visitar</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="container alert alert-dark" role="alert">
+                Você ainda não tem relação com nenhuma empresa.
+            </div>
+        {% endif %}
+    {% else %}
+        <div class=" container alert alert-danger" role="alert">
+            <h1>Acesso negado.</h1>
+        </div>
+    {% endif %}
+{% endblock %}

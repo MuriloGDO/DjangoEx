@@ -1,0 +1,160 @@
+{% extends 'base_gerenciar.html' %}
+
+{% block 'title' %}
+    Gerenciar
+{% endblock %}
+
+{% block 'body' %}
+    {% if request.user.is_authenticated %}
+    {% if erro %}
+        <div class="container alert alert-dark" role="alert">
+            Tente novamente
+        </div>
+    {% endif %}
+    {% if concluido %}
+        <div class="container alert alert-success" role="alert">
+            Concluído
+        </div>
+    {% endif %}
+        {% if valor == 'ad_perm' %}
+            <form method="post" action="/perm/">
+                {% csrf_token %}
+                <div class="container form-group">
+                    <label>Coloque o nome da sua empresa</label>
+                    <input name="empresa" type="text" class="form-control" placeholder="Sua empresa">
+                </div>
+                <div class="container form-group">
+                    <label>Digite o nome de usuário de quem vai receber a autorização</label>
+                    <input name="usuario" type="text" class="form-control" placeholder="Usuário">
+                </div>
+                <div class="container form-group">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+        {% endif %}
+        {% if valor == 'ad_empresa' %}
+            <form method="post" action="/empresa_ad/"> 
+                {% csrf_token %}
+                <div class="container form-group">
+                    <label>Coloque o nome da sua nova empresa</label>
+                    <input name="empresa" type="text" class="form-control" placeholder="Sua nova empresa">
+                </div>
+                <div class="container form-group">
+                    <label for="te">Digite uma descrição</label>
+                    <textarea name="desc" class="form-control" id="te" rows="3"></textarea>
+                  </div>
+                <div class="container form-group">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+        {% endif %}
+        {% if valor == 'rem_empresa' %}
+            <form method="post" action="/empresa_rem/">
+                {% csrf_token %}
+                <div class="container form-group">
+                    <label>Coloque o nome da empresa que você quer excluir</label>
+                    <input name="empresa" type="text" class="form-control" placeholder="Nome da empresa">
+                </div>
+                <div class="container form-group">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>    
+        {% endif %}
+        {% if valor == 'ad_proj' %}
+            <form method="post" action="/proj_ad/">
+                {% csrf_token %}
+                <div class="container form-group">
+                    <label>Nome do projeto</label>
+                    <input name="projeto_nome" type="text" class="form-control" placeholder="Projeto">
+                </div>
+                <div class="container form-group">
+                    <label>Coloque o nome da empresa que comanda o projeto</label>
+                    <input name="empresa" type="text" class="form-control" placeholder="empresa">
+                </div>
+                <div class="container form-group">
+                    <label>Coloque o nome de usuário do dono da empresa</label>
+                    <input name="dono_empresa" type="text" class="form-control" placeholder="empresa">
+                </div>
+                <div class="container form-group">
+                    <label for="text">Digite uma descrição</label>
+                    <textarea name="desc" class="form-control" id="text" rows="3"></textarea>
+                </div>
+                <div class="container form-group">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>    
+        {% endif %}
+        {% if valor == 'rem_proj' %}
+            <form method="post" action="/proj_rem/">
+                {% csrf_token %}
+                <div class="container form-group">
+                    <label>Nome do projeto que deseja excluir</label>
+                    <input name="projeto" type="text" class="form-control" placeholder="Projeto">
+                </div>
+                <div class="container form-group">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>  
+        {% endif %}
+        {% if valor == 'ad_pes' %}
+            <form method="post" action="/pes_ad/">
+                {% csrf_token %}
+                <div class="container form-group">
+                    <label>Nome do projeto</label>
+                    <input name="projeto" type="text" class="form-control" placeholder="Projeto">
+                </div>
+                <div class="container form-group">
+                    <label>Nome da empresa</label>
+                    <input name="empresa" type="text" class="form-control" placeholder="Projeto">
+                </div>
+                <div class="container form-group">
+                    <label>Usuário da pessoa que vai ser adicionada</label>
+                    <input name="usuario" type="text" class="form-control" placeholder="Usuário">
+                </div>
+                <div class="container form-group">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>  
+        {% endif %}
+        {% if valor == 'rem_pes' %}
+            <form method="post" action="/pes_rem/">
+                {% csrf_token %}
+                <div class="container form-group">
+                    <label>Nome do projeto</label>
+                    <input name="projeto" type="text" class="form-control" placeholder="Projeto">
+                </div>
+                <div class="container form-group">
+                    <label>Nome da empresa</label>
+                    <input name="empresa" type="text" class="form-control" placeholder="Usuário">
+                </div>
+                <div class="container form-group">
+                    <label>Usuário da pessoa que vai ser removida</label>
+                    <input name="usuario" type="text" class="form-control" placeholder="Usuário">
+                </div>
+                <div class="container form-group">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>  
+        {% endif %}
+        {% if valor == 'list' %}
+            <form method="post" action="/list_pes/">
+                {% csrf_token %}
+                <div class="container form-group">
+                    <label>Nome do projeto</label>
+                    <input name="projeto" type="text" class="form-control" placeholder="Projeto">
+                </div>
+                <div class="container form-group">
+                    <label>Nome da empresa</label>
+                    <input name="empresa" type="text" class="form-control" placeholder="Usuário">
+                </div>
+                <div class="container form-group">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>  
+        {% endif %}
+    {% else %}
+        <div class="container alert alert-danger" role="alert">
+            <h1>Acesso negado.</h1>
+        </div>
+    {% endif %}
+{% endblock %}
