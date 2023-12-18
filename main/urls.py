@@ -23,6 +23,4 @@ urlpatterns = [
     path('proj_rem/', views.proj_rem, name="proj_rem"),
     path('pes_ad/', views.pes_ad, name="pes_ad"),
     path('pes_rem/', views.pes_rem, name="pes_rem"),
-    path('list/', views.list, name="list"),
-    path('list_pes/', views.list_pes, name="list_pes"),
 ]

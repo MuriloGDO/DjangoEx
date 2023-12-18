@@ -136,22 +136,6 @@
                 </div>
             </form>  
         {% endif %}
-        {% if valor == 'list' %}
-            <form method="post" action="/list_pes/">
-                {% csrf_token %}
-                <div class="container form-group">
-                    <label>Nome do projeto</label>
-                    <input name="projeto" type="text" class="form-control" placeholder="Projeto">
-                </div>
-                <div class="container form-group">
-                    <label>Nome da empresa</label>
-                    <input name="empresa" type="text" class="form-control" placeholder="Usuário">
-                </div>
-                <div class="container form-group">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
-            </form>  
-        {% endif %}
     {% else %}
         <div class="container alert alert-danger" role="alert">
             <h1>Acesso negado.</h1>

@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'teste_django',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': 'localhost',
+        'HOST': 'root',
         'PORT': '3306',  # Porta padrão para o MariaDB
         'OPTIONS': {
             'init_command': 'SET default_storage_engine = InnoDB'

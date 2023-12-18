@@ -24,6 +24,4 @@ urlpatterns = [
     path('proj_proj/', include('main.urls')),
     path('pes_ad/', include('main.urls')),
     path('pes_rem/', include('main.urls')),
-    path('list/', include('main.urls')),
-    path('list_pes/', include('main.urls')),
 ]
