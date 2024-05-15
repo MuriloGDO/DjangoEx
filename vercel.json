@@ -11,7 +11,7 @@
         },
         {
             "src": "/templates/static/(.*)",
-            "dest": "exercicio/static/$1"
+            "dest": "exercicio/templates/static/$1"
         }
     ]
 }
