@@ -75,19 +75,19 @@ WSGI_APPLICATION = 'exercicio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Use 'django.db.backends.mysql' para o MariaDB
-        'NAME': 'teste_django',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'root',
-        'PORT': '3306',  # Porta padrão para o MariaDB
-        'OPTIONS': {
-            'init_command': 'SET default_storage_engine = InnoDB'
-        }
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',  # Use 'django.db.backends.mysql' para o MariaDB
+#         'NAME': 'teste_django',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'root',
+#         'PORT': '3306',  # Porta padrão para o MariaDB
+#         'OPTIONS': {
+#             'init_command': 'SET default_storage_engine = InnoDB'
+#         }
+#     }
+# }
 
 
 # Password validation
