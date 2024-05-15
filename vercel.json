@@ -10,7 +10,7 @@
             "dest": "exercicio/wsgi.py"
         },
         {
-            "src": "/template/static/(.*)",
+            "src": "/templates/static/(.*)",
             "dest": "exercicio/static/$1"
         }
     ]
