@@ -22,6 +22,7 @@ def one_time():
 
 # Create your views here.
 def tela_de_login(request):
+    one_time()
     return render(request, 'index.html')
 
 #Processar Login
