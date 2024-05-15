@@ -8,6 +8,10 @@
         {
             "src": "/(.*)",
             "dest": "exercicio/wsgi.py"
+        },
+        {
+            "src": "/template/static/(.*)",
+            "dest": "exercicio/static/$1"
         }
     ]
 }
